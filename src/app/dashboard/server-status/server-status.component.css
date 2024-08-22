@@ -5,7 +5,7 @@
 
 .status p:first-of-type {
   font-weight: bold;
-  animation: pulse 2s infinite;
+  animation: pulse 1s infinite;
   margin: 0 0 0.5rem 0;
   font-size: 1.15rem;
 }
@@ -32,9 +32,14 @@ p:last-of-type {
     opacity: 1;
   }
   50% {
-    opacity: 0.5;
+    opacity: 0.3;
   }
   100% {
     opacity: 1;
   }
+}
+.gradient-text {
+  background: linear-gradient(to right, #ff0000, #00ff00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
