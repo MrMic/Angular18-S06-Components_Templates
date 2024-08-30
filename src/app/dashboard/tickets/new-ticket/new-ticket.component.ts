@@ -17,8 +17,8 @@ import { ControlComponent } from "../../../shared/control/control.component";
 })
 export class NewTicketComponent {
 
-  onSubmit() {
-    // TODO: implement
+  onSubmit(titleElement: HTMLInputElement) {
+    const enteredTitle = titleElement.value;
   }
 
 }
