@@ -1,28 +1,44 @@
-import { Component, ElementRef, viewChild, ViewChild } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  OnInit,
+  ViewChild,
+  viewChild,
+} from "@angular/core";
+import { FormsModule } from "@angular/forms";
 
-import { ButtonComponent } from '../../../shared/button/button.component';
-import { ControlComponent } from '../../../shared/control/control.component';
+import { ButtonComponent } from "../../../shared/button/button.component";
+import { ControlComponent } from "../../../shared/control/control.component";
 
 @Component({
-  selector: 'app-new-ticket',
+  selector: "app-new-ticket",
   standalone: true,
   imports: [ButtonComponent, ControlComponent, FormsModule],
-  templateUrl: './new-ticket.component.html',
-  styleUrl: './new-ticket.component.css',
+  templateUrl: "./new-ticket.component.html",
+  styleUrl: "./new-ticket.component.css",
 })
-export class NewTicketComponent {
-  // @ViewChild('form') private form?: ElementRef<HTMLFormElement>;
+export class NewTicketComponent implements OnInit, AfterViewInit {
+  @ViewChild('form') private form?: ElementRef<HTMLFormElement>;
   // private form = viewChild<ElementRef<HTMLFormElement>>('form');
-  private form = viewChild.required<ElementRef<HTMLFormElement>>('form');
+  // private form = viewChild.required<ElementRef<HTMLFormElement>>("form");
 
-  onSubmit(
-    title: string,
-    ticketText: string,
-  ) {
+  // ______________________________________________________________________
+  ngOnInit() {
+    console.log("ON INIT");
+    console.log(this.form?.nativeElement);
+  }
+
+  // ______________________________________________________________________
+  ngAfterViewInit() {
+    console.log("AFTER VIEW INIT");
+    console.log(this.form?.nativeElement);
+  }
+
+  onSubmit(title: string, ticketText: string) {
     console.log(title, ticketText);
     // this.form?.nativeElement.reset();
     // this.form()?.nativeElement.reset();
-    this.form().nativeElement.reset();
+    this.form?.nativeElement.reset();
   }
 }
