@@ -1,3 +1,16 @@
+<div>
+  <ul>
+    <!-- WARN: With Angular v17+ -->
+    @for (ticket of tickets; track ticket.id) {
+      <li>
+        <app-ticket />
+      </li>
+    } @empty {
+      <li>No tickets</li>
+    }
+  </ul>
+</div>
+
 <div id="new-ticket">
   <app-new-ticket (add)="onAdd($event)" />
 </div>
