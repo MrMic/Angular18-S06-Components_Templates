@@ -3,7 +3,7 @@
     <!-- WARN: With Angular v17+ -->
     @for (ticket of tickets; track ticket.id) {
       <li>
-        <app-ticket [data]="ticket" />
+        <app-ticket [data]="ticket" (close)="onClose(ticket.id)" />
       </li>
     } @empty {
       <li>No tickets</li>
